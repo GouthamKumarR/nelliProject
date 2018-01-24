@@ -1,0 +1,27 @@
+	 
+
+.ui-widget  {
+
+    color:white!important;
+    background-color: white !important;
+     background: white !important;
+     width: 475px !important;
+     cursor: pointer!important;
+     font-family: calibri!important;
+     font-style: 16px!important;
+}
+.ui-widget-content{
+
+
+   font-size: 18px !important;
+   margin-left:10px
+}
+.ui-menu-item-wrapper{
+   margin-left: 15px;
+   
+
+}
+.ui-menu-item{
+background-color:#f58936;
+}
+  }
