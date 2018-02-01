@@ -17,7 +17,7 @@ public class Client implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private int catId;
-	private int cityId;
+	private int citiesId;
 	private String name;
 	private String mobile;
 	private String webSite;
@@ -36,12 +36,6 @@ public class Client implements Serializable{
 	}
 	public void setCatId(int catId) {
 		this.catId = catId;
-	}
-	public int getCityId() {
-		return cityId;
-	}
-	public void setCityId(int cityId) {
-		this.cityId = cityId;
 	}
 	public String getName() {
 		return name;
@@ -85,9 +79,16 @@ public class Client implements Serializable{
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
+	
+	public int getCitiesId() {
+		return citiesId;
+	}
+	public void setCitiesId(int citiesId) {
+		this.citiesId = citiesId;
+	}
 	@Override
 	public String toString() {
-		return "Client [id=" + id + ", catId=" + catId + ", cityId=" + cityId + ", name=" + name + ", mobile=" + mobile
+		return "Client [id=" + id + ", catId=" + catId + ", cityId=" + citiesId + ", name=" + name + ", mobile=" + mobile
 				+ ", webSite=" + webSite + ", details=" + details + ", imgUrl=" + imgUrl + ", address=" + address
 				+ ", status=" + status + "]";
 	}

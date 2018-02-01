@@ -44,7 +44,7 @@
                 <div class="copyright-content">
                    <div class="row">
                       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                         <p> 2017 Nellai Pages All rights reserved. Design by <a href="https://www.necurity.com" target="_blank">Necurity Solutions</a> </p>
+                         <p> 2017 Nellai Today All rights reserved. Design by <a href="#" target="_blank">Goutham</a> </p>
                       </div>
                    </div>
                 </div>

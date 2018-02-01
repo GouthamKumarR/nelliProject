@@ -51,14 +51,14 @@
 		        <li>
 		            <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-list nav_icon"></i> <span class="nav-label">Categories</span><span class="fa arrow"></span></a>
 		            <ul class="nav nav-second-level">
-		                <li><a href="${contextRoot}/admin/addCategory" class=" hvr-bounce-to-right"><i class="fa fa-file nav_icon"></i>Create Category</a></li>
+		                <li><a href="${contextRoot}/admin/addCategory/add" class=" hvr-bounce-to-right"><i class="fa fa-file nav_icon"></i>Create Category</a></li>
 		                <li><a href="${contextRoot}/admin/list/categories" class=" hvr-bounce-to-right"><i class="fa fa-list nav_icon"></i>List of Categories</a></li>
 		            </ul>
 		        </li>
 		        <li>
 		            <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-users nav_icon"></i> <span class="nav-label">Clients</span><span class="fa arrow"></span></a>
 		            <ul class="nav nav-second-level">
-		                <li><a href="${contextRoot}/admin/addClient" class=" hvr-bounce-to-right"><i class="fa fa-file nav_icon"></i>Create Client</a></li>
+		                <li><a href="${contextRoot}/admin/addClient/add" class=" hvr-bounce-to-right"><i class="fa fa-file nav_icon"></i>Create Client</a></li>
 		                <li><a href="${contextRoot}/admin/list/clients" class=" hvr-bounce-to-right"><i class="fa fa-list nav_icon"></i>List of Clients</a></li>
 		            </ul>
 		        </li>
@@ -66,7 +66,7 @@
 		        <li>
 		            <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-file-text-o nav_icon"></i> <span class="nav-label">Offers</span><span class="fa arrow"></span></a>
 		            <ul class="nav nav-second-level">
-		                <li><a href="${contextRoot}/admin/addOffers" class=" hvr-bounce-to-right"><i class="fa fa-file nav_icon"></i>Create Offers</a></li>
+		                <li><a href="${contextRoot}/admin/addOffers/add" class=" hvr-bounce-to-right"><i class="fa fa-file nav_icon"></i>Create Offers</a></li>
 		                <li><a href="${contextRoot}/admin/list/offers" class=" hvr-bounce-to-right"><i class="fa fa-list nav_icon"></i>List of Offers</a></li>
 		            </ul>
 		        </li>

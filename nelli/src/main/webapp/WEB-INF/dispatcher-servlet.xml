@@ -20,7 +20,7 @@
 		<property name="suffix" value=".jsp" />
 		
 	</bean>
-	
+	 
 	
 	<!-- Loading static resources -->
 	<mvc:annotation-driven />

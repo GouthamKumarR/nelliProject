@@ -15,10 +15,6 @@ $(document).ready( function() {
     { startDate: thisMonth + '-21', endDate: thisMonth + '-23', title: 'Another Multi-Day Event' }
   ];
 
-  // the order of the click handlers is predictable.
-  // direct click action callbacks come first: click, nextMonth, previousMonth, nextYear, previousYear, or today.
-  // then onMonthChange (if the month changed).
-  // finally onYearChange (if the year changed).
 
   calendars.clndr1 = $('.cal1').clndr({
     events: eventArray,
@@ -62,16 +58,6 @@ $(document).ready( function() {
     adjacentDaysChangeMonth: false
   });
 
-  // calendars.clndr2 = $('.cal2').clndr({
-  //   template: $('#template-calendar').html(),
-  //   events: eventArray,
-  //   startWithMonth: moment().add('month', 1),
-  //   clickEvents: {
-  //     click: function(target) {
-  //       console.log(target);
-  //     }
-  //   }
-  // });
 
   // bind both clndrs to the left and right arrow keys
   $(document).keydown( function(e) {
