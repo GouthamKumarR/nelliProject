@@ -114,12 +114,11 @@ public class AdminController {
 
 	}
 
-	@RequestMapping(value = "/addclient", method = RequestMethod.POST)
+	@RequestMapping(value = "/addClient", method = RequestMethod.POST)
 	public String addClient(@Valid @ModelAttribute("client") Client client, BindingResult results, Model model,
 			HttpServletRequest request) {
 
 		System.out.println(" update client "+client.getId());
-
 		if (client.getId() == 0) {
 			clientDao.add(client);
 		} else {

@@ -12,30 +12,24 @@ public class Client implements Serializable{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1767408674457174486L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private int catId;
-	private int citiesId;
+	private String catId;
+	private String cityId;
 	private String name;
 	private String mobile;
 	private String webSite;
 	private String details;
 	private String imgUrl;
 	private String address;
-	private boolean status;
+	private boolean status = true;
+	
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-	public int getCatId() {
-		return catId;
-	}
-	public void setCatId(int catId) {
-		this.catId = catId;
 	}
 	public String getName() {
 		return name;
@@ -79,19 +73,26 @@ public class Client implements Serializable{
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
-	
-	public int getCitiesId() {
-		return citiesId;
+	public String getCatId() {
+		return catId;
 	}
-	public void setCitiesId(int citiesId) {
-		this.citiesId = citiesId;
+	public void setCatId(String catId) {
+		this.catId = catId;
+	}
+	public String getCityId() {
+		return cityId;
+	}
+	public void setCityId(String cityId) {
+		this.cityId = cityId;
 	}
 	@Override
 	public String toString() {
-		return "Client [id=" + id + ", catId=" + catId + ", cityId=" + citiesId + ", name=" + name + ", mobile=" + mobile
+		return "Client [id=" + id + ", catId=" + catId + ", cityId=" + cityId + ", name=" + name + ", mobile=" + mobile
 				+ ", webSite=" + webSite + ", details=" + details + ", imgUrl=" + imgUrl + ", address=" + address
 				+ ", status=" + status + "]";
 	}
 	
+	
+
 
 }

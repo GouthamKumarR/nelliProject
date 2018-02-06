@@ -14,7 +14,7 @@
 	<div class="row">
 	
 		<!-- Display the product image -->
-		 <div class="col-xs-12 col-sm-4">
+		 <div class="col-xs-12 col-sm-6 midlePage">
 		
 			<div class="thumbnail">
 							
@@ -26,7 +26,7 @@
 	
 		
 		<!-- Display the product description -->	
-		<div class="col-xs-12 col-sm-8">
+		<div class="col-xs-12 col-sm-6 midlePage">
 		
 			<h3>${client.name}</h3>
 			<hr/>
@@ -40,26 +40,25 @@
 			<p>${client.mobile}</p>
 			<hr/>
 			<h3>Client Site</h3>
-			<a href='${client.webSite}'>${client.webSite}</a>
+			<a href='../../../../${client.webSite}' target="_blank">${client.webSite}</a>
+			<%-- <c:redirect url="${client.webSite}"/>   --%>
 			<hr/>
-			<a href="${contextRoot}/categories" class="btn btn-warning">
-				View All Categories</a>
+			<%-- <a href="${contextRoot}/categories" class="btn btn-warning">
+				View All Categories</a> --%>
 		</div>
 	</div>
 	
-	<div class="row is-table-row">
+	<div class="row is-table-row endPage" >
+	<h1> Offers List</h1>
 				<c:forEach items="${listOffers}" var="offers">
-					<div class="col-sm-4">
+					<div class="col-sm-6 insideEnd" >
 						<div class="thumbnail">
 							<img src="${images}/${offers.offImageUrl}"
 								alt="${offers.content}" class="image">
 						</div>
 
 						<div class="caption">
-							
 							<p>${offers.content}</p>
-
-							<p>
 								<a href="${offers.offerLink}" class="btn btn-primary pull-right" role="button"> View </a>
 							</p>
 

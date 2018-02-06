@@ -10067,3 +10067,19 @@ ul.listingViewIcon li.shortByListingLi ul li a {
 	height: 50px;
 	max-width: 50%;
 }
+
+.midlePage{
+    padding-bottom: 6%;
+    padding-left: 4%;
+    padding-top: 5%;
+}
+
+.endPage{
+    padding-bottom: 6%;
+    padding-left: 4%;
+    padding-top: 5%;
+    padding-right: 4%;
+}
+.insideEnd{
+	 padding-bottom: 3%;
+}

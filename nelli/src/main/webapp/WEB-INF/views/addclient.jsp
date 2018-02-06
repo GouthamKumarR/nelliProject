@@ -9,7 +9,6 @@
 					Client</span>
 			</h2>
 		</div>
-		<!--//banner-->
 		<!--faq-->
 
 		<div class="validation-system">
@@ -17,18 +16,18 @@
 			<div class="validation-form">
 				<!---->
 
-				<sf:form method="POST" action="${contextRoot}/admin/addclient"
+				<sf:form method="POST" action="${contextRoot}/admin/addClient"
 					modelAttribute="client">
 					<input type="hidden" name="clientid" value="">
 					<div class="clearfix"></div>
 					<div class="col-md-12 form-group2 group-mail">
 						<label class="control-label">City</label>
-						<sf:select path="citiesId" items="${listCity}"
+						<sf:select path="cityId" items="${listCity}"
 							itemLabel="cityName" itemValue="id" class="form-control" />
 
 						<div class="text-right">
 							<br />
-							<sf:hidden path="id" />
+							 <sf:hidden path="id" /> 
 						</div>
 					</div>
 
@@ -95,22 +94,20 @@
 					<div class="clearfix"></div>
 				</sf:form>
 
-				<!---->
 			</div>
 
 		</div>
 
-		<!--//faq-->
-		<!---->
+	
 	</div>
 	<div class="clearfix"></div>
 </div>
 
-<!---->
+
 <!--scrolling js-->
 <script src="js/jquery.nicescroll.js"></script>
 <script src="js/scripts.js"></script>
-<!--//scrolling js-->
+
 </body>
 </html>
 

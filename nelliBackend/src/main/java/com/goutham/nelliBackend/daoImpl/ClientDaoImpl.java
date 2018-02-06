@@ -36,11 +36,13 @@ public class ClientDaoImpl implements ClientDao {
 	public boolean add(Client client) {
 		try {
 			sessionFactory.getCurrentSession().persist(client);
+			
 			return true;
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			return false;
 		}
+		
 	}
 
 	public boolean update(Client client) {
@@ -73,7 +75,7 @@ public class ClientDaoImpl implements ClientDao {
 		Query query = sessionFactory.getCurrentSession().createQuery(selectActiveCategory);
 
 		query.setParameter("status", true);
-		query.setParameter("catId", catId);
+		query.setParameter("catId", catId+"");
 
 		return query.getResultList();
 	}

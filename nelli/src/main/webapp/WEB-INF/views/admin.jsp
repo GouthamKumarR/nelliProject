@@ -62,7 +62,7 @@
 <!-- Bootstrap DataTables -->
 <link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
 <link href="${css}/style.css" rel="stylesheet">
-
+<link href="${css}/myApp.css" rel="stylesheet">
 </head>
 <body>
 
@@ -91,10 +91,10 @@
 		<%@include file="categoryList.jsp"%>
 	</c:if>
 	<c:if test="${userClickListClient == true }">
-		<%@include file="categoryList.jsp"%>
+		<%@include file="clientList.jsp"%>
 	</c:if>
 	<c:if test="${userClickListOffer == true }">
-		<%@include file="categoryList.jsp"%>
+		<%@include file="offersList.jsp"%>
 	</c:if>
 
 

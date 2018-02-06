@@ -1,4 +1,4 @@
-
+<link href="${css}/myApp.css" rel="stylesheet">
 	<!-- Breadcrumb -->
 <div class="page-header-area">
          <div class="container">
@@ -14,7 +14,7 @@
 	<div class="row">
 	
 		<!-- Display the product image -->
-		 <div class="col-xs-12 col-sm-4">
+		 <div class="col-xs-12 col-sm-6 midlePage" >
 		
 			<div class="thumbnail">
 							
@@ -26,7 +26,7 @@
 	
 		
 		<!-- Display the product description -->	
-		<div class="col-xs-12 col-sm-8">
+		<div class="col-xs-12 col-sm-6 midlePage" >
 		
 			<h3>${category.name}</h3>
 			<hr/>
@@ -38,9 +38,10 @@
 		</div>
 	</div>
 	
-	 <div class="row is-table-row">
+	 <div class="row is-table-row endPage">
+	 	<h1> Client List</h1>
 				<c:forEach items="${clients}" var="client">
-					<div class="col-sm-4">
+					<div class="col-sm-4 insideEnd" >
 						<div class="thumbnail">
 							<img src="${images}/${client.imgUrl}"
 								alt="${client.name}" class="image">
