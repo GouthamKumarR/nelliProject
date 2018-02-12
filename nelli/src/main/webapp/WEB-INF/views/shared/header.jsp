@@ -1,4 +1,7 @@
-
+<%@taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
+	<script>
+		window.userRole = '${userModel.role}';
+	</script>
 <!-- =-=-=-=-=-=-= Preloader =-=-=-=-=-=-= -->
 <!-- <div id="loader-wrapper">
 	<div id="loader"></div>
@@ -27,7 +30,28 @@
 							<li><a href="${contextRoot}/about">About Us </a></li>
 							<li><a href="${contextRoot}/categories">Categories </a></li>
 							<li><a href="${contextRoot}/contact">Contact Us </a></li>
-							<li><a href="${contextRoot}/admin/dashboard">Dashboard </a></li>
+
+							<security:authorize access="hasAuthority('ADMIN')">
+								<li><a href="${contextRoot}/admin/dashboard">Dashboard
+								</a></li>
+							</security:authorize>
+						</ul>
+
+						<ul class="nav navbar-nav navbar-right">
+							
+							<security:authorize access="isAuthenticated()">
+								<li class="dropdown" id="userModel"><a
+									class="btn btn-default dropdown-toggle"
+									href="javascript:void(0)" id="dropdownMenu1"
+									data-toggle="dropdown" aria-haspopup="true"
+									aria-expanded="true"> ${userModel.fullName} <span
+										class="caret"></span>
+								</a>
+									<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+										<li id="logout"><a href="${contextRoot}/perform-logout">Logout</a>
+										</li>
+									</ul></li>
+							</security:authorize>
 						</ul>
 
 					</div>

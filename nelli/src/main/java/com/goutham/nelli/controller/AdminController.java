@@ -20,6 +20,7 @@ import com.goutham.nelliBackend.dao.CategoryDao;
 import com.goutham.nelliBackend.dao.CitiesDao;
 import com.goutham.nelliBackend.dao.ClientDao;
 import com.goutham.nelliBackend.dao.OffersDao;
+import com.goutham.nelliBackend.dao.S3Services;
 import com.goutham.nelliBackend.dto.Category;
 import com.goutham.nelliBackend.dto.Cities;
 import com.goutham.nelliBackend.dto.Client;
@@ -37,9 +38,14 @@ public class AdminController {
 
 	@Autowired
 	OffersDao offersDao;
-	
+
 	@Autowired
 	CitiesDao cityDao;
+
+	@Autowired
+	S3Services s3Services;
+
+	private String uploadFilePath = "C:\\Users\\Gautham\\Desktop\\Capture.PNG";
 
 	@RequestMapping({ "/", "", "/dashboard" })
 	public ModelAndView dashboard(@RequestParam(name = "success", required = false) String success) {
@@ -86,8 +92,16 @@ public class AdminController {
 		// System.out.println(" update "+category.getId());
 
 		if (category.getId() == 0) {
+			if (!category.getFile().getOriginalFilename().equals("")) {
+				String str = s3Services.uploadFile(category.getFile(), category.getName() + category.getId());
+				category.setImageURL(str);
+			}
 			categoryDAO.add(category);
 		} else {
+			if (!category.getFile().getOriginalFilename().equals("")) {
+				String str = s3Services.uploadFile(category.getFile(), category.getName() + category.getId());
+				category.setImageURL(str);
+			}
 			categoryDAO.update(category);
 		}
 
@@ -118,10 +132,19 @@ public class AdminController {
 	public String addClient(@Valid @ModelAttribute("client") Client client, BindingResult results, Model model,
 			HttpServletRequest request) {
 
-		System.out.println(" update client "+client.getId());
+		System.out.println(" update client " + client.getId());
 		if (client.getId() == 0) {
+
+			if (!client.getFile().getOriginalFilename().equals("")) {
+				String str = s3Services.uploadFile(client.getFile(), client.getName() + client.getId());
+				client.setImgUrl(str);
+			}
 			clientDao.add(client);
 		} else {
+			if (!client.getFile().getOriginalFilename().equals("")) {
+				String str = s3Services.uploadFile(client.getFile(), client.getName() + client.getId());
+				client.setImgUrl(str);
+			}
 			clientDao.update(client);
 		}
 
@@ -149,13 +172,22 @@ public class AdminController {
 	}
 
 	@RequestMapping(value = "/addoffers", method = RequestMethod.POST)
-	public String addOffers(@Valid @ModelAttribute("offer") Offers offer, BindingResult results, Model model,
+	public String addOffers(@Valid @ModelAttribute("offers") Offers offers, BindingResult results, Model model,
 			HttpServletRequest request) {
+		System.out.println(" offer.getFile()" + offers.getFile());
 
-		if (offer.getId() == 0) {
-			offersDao.add(offer);
+		if (offers.getId() == 0) {
+			if (!offers.getFile().getOriginalFilename().equals("")) {
+				String str = s3Services.uploadFile(offers.getFile(), offers.getContent() + offers.getId());
+				offers.setOffImageUrl(str);
+			}
+			offersDao.add(offers);
 		} else {
-			offersDao.update(offer);
+			if (!offers.getFile().getOriginalFilename().equals("")) {
+				String str = s3Services.uploadFile(offers.getFile(), offers.getContent() + offers.getId());
+				offers.setOffImageUrl(str);
+			}
+			offersDao.update(offers);
 		}
 
 		return "redirect:/admin/list/offers?success=message";
@@ -182,15 +214,56 @@ public class AdminController {
 		return model;
 
 	}
-	
-	@ModelAttribute("listCategory") 
+
+	@RequestMapping("/deleteCategory/{id}")
+	public String deleteCategory(@PathVariable("id") String id) {
+
+		Category category = null;
+		if (Integer.parseInt(id) > 0) {
+			category = categoryDAO.get(Integer.parseInt(id));
+			categoryDAO.delete(category);
+		}
+
+		return "redirect:/admin/list/categories?success=message";
+	}
+
+	@RequestMapping("/deleteClient/{id}")
+	public String deleteClient(@PathVariable("id") String id) {
+
+		Client client = null;
+		if (Integer.parseInt(id) > 0) {
+			client = clientDao.get(Integer.parseInt(id));
+			clientDao.delete(client);
+		}
+
+		return "redirect:/admin/list/clients?success=message";
+	}
+
+	@RequestMapping("/deleteOffers/{id}")
+	public String deleteOffers(@PathVariable("id") String id) {
+
+		Offers offers = null;
+		if (Integer.parseInt(id) > 0) {
+			offers = offersDao.get(Integer.parseInt(id));
+			offersDao.delete(offers);
+		}
+
+		return "redirect:/admin/list/offers?success=message";
+	}
+
+	@ModelAttribute("listCategory")
 	public List<Category> modelCategories() {
 		return categoryDAO.list();
 	}
-	
-	@ModelAttribute("listCity") 
+
+	@ModelAttribute("listCity")
 	public List<Cities> modelCities() {
 		return cityDao.list();
+	}
+
+	@ModelAttribute("listClient")
+	public List<Client> modelClient() {
+		return clientDao.list();
 	}
 
 }

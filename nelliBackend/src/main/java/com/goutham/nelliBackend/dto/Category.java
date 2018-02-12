@@ -6,6 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
+
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 public class Category implements Serializable {
@@ -30,6 +33,17 @@ public class Category implements Serializable {
 
 	private boolean active;
 
+	@Transient
+	private MultipartFile file;
+			
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
+	
 	public int getId() {
 		return id;
 	}

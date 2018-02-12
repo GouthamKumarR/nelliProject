@@ -17,8 +17,9 @@
 				<!---->
 
 				<sf:form method="POST" action="${contextRoot}/admin/addClient"
-					modelAttribute="client">
-					<input type="hidden" name="clientid" value="">
+					modelAttribute="client" enctype="multipart/form-data">
+					<sf:input type="hidden" name="id" path="id"></sf:input>
+					<sf:input type="hidden" name="imgUrl" path="imgUrl"></sf:input>
 					<div class="clearfix"></div>
 					<div class="col-md-12 form-group2 group-mail">
 						<label class="control-label">City</label>
@@ -78,11 +79,11 @@
 					</div>
 					<div class="clearfix"></div>
 
-					<!--  	<div class="col-md-12 form-group ">
+					<div class="col-md-12 form-group ">
               <label class="control-label">Client Image</label>
-              <input type="file" name="cimage">
+               <sf:input type="file" name="file" path="file"></sf:input>
               <p class="help-block"> select image for Client Logo</p>
-            </div> -->
+            </div>
 					<div class="clearfix"></div>
 					<div class="clearfix"></div>
 

@@ -82,7 +82,7 @@
 			</c:if>
 			
 			 <!-- Loading the home content -->
-			<c:if test="${userClickContactus == true }">
+			 <c:if test="${userClickContactus == true }">
 				<%@include file="contact.jsp"%>
 			</c:if>
 			

@@ -30,6 +30,7 @@ public class JsonDataController {
 	@RequestMapping("/all/category")
 	@ResponseBody
 	public List<Category> getAllCategoryList() {
+		System.out.println("Inside Cat ");
 		return categoryDao.list();
 
 	}
@@ -45,7 +46,7 @@ public class JsonDataController {
 	@ResponseBody
 	public List<Offers> getAllOffersList() {
 		
-		System.out.println("Inside offers ");
+		System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 		return offersDao.list();
 
 	}

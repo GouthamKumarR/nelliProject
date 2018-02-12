@@ -18,7 +18,7 @@
 		
 			<div class="thumbnail">
 							
-				<img src="${images}/${client.imgUrl}" class="img img-responsive"/>
+				<img src="${client.imgUrl}" class="img img-responsive"/>
 						
 			</div>
 		
@@ -51,14 +51,18 @@
 	<div class="row is-table-row endPage" >
 	<h1> Offers List</h1>
 				<c:forEach items="${listOffers}" var="offers">
-					<div class="col-sm-6 insideEnd" >
+					<div class="col-sm-4 insideEnd" >
 						<div class="thumbnail">
-							<img src="${images}/${offers.offImageUrl}"
-								alt="${offers.content}" class="image">
+							<a href="${offers.offerLink}"><img src="${offers.imageUrl}"
+								alt="${offers.content}" class="image"></a>
 						</div>
 
 						<div class="caption">
 							<p>${offers.content}</p>
+							<%-- <p>${offers.catName}</p>
+							<p>${offers.cityName}</p>
+							<p>${offers.clientName}</p> --%>
+							<p>
 								<a href="${offers.offerLink}" class="btn btn-primary pull-right" role="button"> View </a>
 							</p>
 
@@ -75,3 +79,4 @@
 				</div>
 
 			</div>  
+			

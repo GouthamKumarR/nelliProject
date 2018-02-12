@@ -8,6 +8,7 @@ public interface OffersDao {
 	
 	Offers get(int id);
 	List<Offers> list();
+	List<Offers> listSpecialOffers();
 	List<Offers> getListOffersById(int id);
 	boolean add(Offers offers);
 	boolean update(Offers offers);

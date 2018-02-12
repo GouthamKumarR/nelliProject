@@ -20,16 +20,15 @@ public class OffersDaoImpl implements OffersDao {
 	SessionFactory sessionFactory;
 
 	public Offers get(int id) {
-		// TODO Auto-generated method stub
 		return sessionFactory.getCurrentSession().get(Offers.class, Integer.valueOf(id));
 	}
 
 	public List<Offers> list() {
-		String selectActiveOffers = "FROM Offers WHERE status = :status";
+		String selectActiveOffers = "FROM Offers";
 
 		Query query = sessionFactory.getCurrentSession().createQuery(selectActiveOffers);
 
-		query.setParameter("status", true);
+		//query.setParameter("status", true);
 
 		return query.getResultList();
 	}
@@ -77,6 +76,18 @@ public class OffersDaoImpl implements OffersDao {
 			ex.printStackTrace();
 			return false;
 		}
+	}
+
+	@Override
+	public List<Offers> listSpecialOffers() {
+		String selectActiveOffers = "FROM Offers WHERE status = :status AND specialOffer = :specialOffer";
+
+		Query query = sessionFactory.getCurrentSession().createQuery(selectActiveOffers);
+
+		query.setParameter("status", true);
+		query.setParameter("specialOffer", true);
+
+		return query.getResultList();
 	}
 
 }

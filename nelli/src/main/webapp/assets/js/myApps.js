@@ -1,33 +1,22 @@
-$("#search_class").autocomplete({
-
-	source : function(request, response) {
-		$.ajax({
-			url : "https://nellaipages.com/home/classifieds_list",
-			dataType : "json",
-			data : {
-				term : request.term,
-				locations : $("#city").val(),
-				services : $("#services").val(),
-			},
-			success : function(data) {
-				response(data);
-			}
-		});
-	},
-	minLength : 1,
-	select : function(event, ui) {
-		//log( "Selected: " + ui.item.value + " aka " + ui.item.id );
-		$('#search-name').val(ui.item.id);
-		$('#form-submit').submit();
-	}
-});
-
 $(function() {
+	// for handling CSRF token
+	var token = $('meta[name="_csrf"]').attr('content');
+	var header = $('meta[name="_csrf_header"]').attr('content');
+
+	if ((token != undefined && header != undefined)
+			&& (token.length > 0 && header.length > 0)) {
+		// set the token header for the ajax request
+		$(document).ajaxSend(function(e, xhr, options) {
+			xhr.setRequestHeader(header, token);
+		});
+	}
 	// code for jquery dataTable Category
 	var jsonUrl = '';
 	jsonUrl = window.contextRoot + '/json/data/all/category';
 
-	$('#datatable').DataTable({
+	$('#datatable')
+			.DataTable(
+					{
 
 						lengthMenu : [
 								[ 3, 5, 10, -1 ],
@@ -47,9 +36,12 @@ $(function() {
 									bSortable : false,
 									mRender : function(data, type, row) {
 
-										return '<img src="'
-												+ window.contextRoot
-												+ '/resources/img/' + data
+										/*
+										 * return '<img
+										 * src="'+window.contextRoot+'/resources/img/'+
+										 * data+'" class="dataTableImg"/>';
+										 */
+										return '<img src="' + data
 												+ '" class="dataTableImg"/>';
 
 									}
@@ -75,26 +67,37 @@ $(function() {
 									data : 'id',
 									mRender : function(data, type, row) {
 										var str = '';
-										/*str += '<a href="'+ window.contextRoot+ '/show/'+ data+ '/product" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></a> &#160;';*/
-										str += '<a href="'+ window.contextRoot
-											+ '/admin/addCategory/'
-											+ data+'"><i class="fa fa-edit "></i></a>';
+										/*
+										 * str += '<a href="'+
+										 * window.contextRoot+ '/show/'+ data+
+										 * '/product" class="btn btn-primary"><span
+										 * class="glyphicon glyphicon-eye-open"></span></a>
+										 * &#160;';
+										 */
+										str += '<a href="'
+												+ window.contextRoot
+												+ '/admin/addCategory/'
+												+ data
+												+ '"><i class="fa fa-edit "></i></a>';
 										str += '||';
-										str += '<a href="admin.php?action=delcategory&amp;id=19"><i class="fa fa-trash "></i></a>';
+										str += '<a href="'
+												+ window.contextRoot
+												+ '/admin/deleteCategory/'
+												+ data
+												+ '"><i class="fa fa-trash "></i></a>';
 
 										return str;
 									}
 
 								} ]
 					});
-	
-	
-	
+
 	// code for jquery dataTable Client
-	var jsonUrl1= '';
+	var jsonUrl1 = '';
 	jsonUrl1 = window.contextRoot + '/json/data/all/client';
 
-	$('#clientdatatable').DataTable({
+	$('#clientdatatable').DataTable(
+					{
 
 						lengthMenu : [
 								[ 3, 5, 10, -1 ],
@@ -114,9 +117,7 @@ $(function() {
 									bSortable : false,
 									mRender : function(data, type, row) {
 
-										return '<img src="'
-												+ window.contextRoot
-												+ '/resources/img/' + data
+										return '<img src="' + data
 												+ '" class="dataTableImg"/>';
 
 									}
@@ -151,24 +152,37 @@ $(function() {
 									data : 'id',
 									mRender : function(data, type, row) {
 										var str = '';
-										/*str += '<a href="'+ window.contextRoot+ '/show/'+ data+ '/product" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></a> &#160;';*/
-										str += '<a href="'+ window.contextRoot
-											+ '/admin/addClient/'
-											+ data+'"><i class="fa fa-edit "></i></a>';
+										/*
+										 * str += '<a href="'+
+										 * window.contextRoot+ '/show/'+ data+
+										 * '/product" class="btn btn-primary"><span
+										 * class="glyphicon glyphicon-eye-open"></span></a>
+										 * &#160;';
+										 */
+										str += '<a href="'
+												+ window.contextRoot
+												+ '/admin/addClient/'
+												+ data
+												+ '"><i class="fa fa-edit "></i></a>';
 										str += '||';
-										str += '<a href="admin.php?action=delcategory&amp;id=19"><i class="fa fa-trash "></i></a>';
+										str += '<a href="'
+												+ window.contextRoot
+												+ '/admin/deleteClient/'
+												+ data
+												+ '"><i class="fa fa-trash "></i></a>';
 
 										return str;
 									}
 
 								} ]
 					});
-	
-	
-	// code for jquery dataTable Offers
+
+	// code for jquery dataTable offers
 	var jsonUrl2 = '';
 	jsonUrl2 = window.contextRoot + '/json/data/all/offers';
-	$('#offersdatatable').DataTable({
+
+	$('#offerdatatable').DataTable(
+					{
 
 						lengthMenu : [
 								[ 3, 5, 10, -1 ],
@@ -187,16 +201,10 @@ $(function() {
 									data : 'offImageUrl',
 									bSortable : false,
 									mRender : function(data, type, row) {
-
-										return '<img src="'
-												+ window.contextRoot
-												+ '/resources/img/' + data
+										return '<img src="' + data
 												+ '" class="dataTableImg"/>';
 
 									}
-								},
-								{
-									data : 'offerLink'
 								},
 								{
 									data : 'startDate'
@@ -222,12 +230,17 @@ $(function() {
 									data : 'id',
 									mRender : function(data, type, row) {
 										var str = '';
-										/*str += '<a href="'+ window.contextRoot+ '/show/'+ data+ '/product" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></a> &#160;';*/
-										str += '<a href="'+ window.contextRoot
-											+ '/admin/addOffers/'
-											+ data+'"><i class="fa fa-edit "></i></a>';
+										str += '<a href="'
+												+ window.contextRoot
+												+ '/admin/addOffers/'
+												+ data
+												+ '"><i class="fa fa-edit "></i></a>';
 										str += '||';
-										str += '<a href="admin.php?action=delcategory&amp;id=19"><i class="fa fa-trash "></i></a>';
+										str += '<a href="'
+												+ window.contextRoot
+												+ '/admin/deleteOffers/'
+												+ data
+												+ '"><i class="fa fa-trash "></i></a>';
 
 										return str;
 									}

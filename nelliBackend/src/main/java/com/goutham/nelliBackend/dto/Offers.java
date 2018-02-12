@@ -7,6 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
+
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 public class Offers implements Serializable{
@@ -21,11 +24,29 @@ public class Offers implements Serializable{
 	private int cityId;
 	private int clientId;
 	private String offImageUrl;
-	private Date startDate;
-	private Date endDate;
+	private String startDate;
+	private String endDate;
 	private String offerLink;
 	private String content;
-	private boolean status;
+	private boolean status = true;
+	private boolean specialOffer;
+	   
+	@Transient
+	private MultipartFile file;
+			
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
+	public boolean isSpecialOffer() {
+		return specialOffer;
+	}
+	public void setSpecialOffer(boolean specialOffer) {
+		this.specialOffer = specialOffer;
+	}
 	public int getId() {
 		return id;
 	}
@@ -56,18 +77,23 @@ public class Offers implements Serializable{
 	public void setOffImageUrl(String offImageUrl) {
 		this.offImageUrl = offImageUrl;
 	}
-	public Date getStartDate() {
+	
+	public String getStartDate() {
 		return startDate;
 	}
-	public void setStartDate(Date startDate) {
+
+	public void setStartDate(String startDate) {
 		this.startDate = startDate;
 	}
-	public Date getEndDate() {
+
+	public String getEndDate() {
 		return endDate;
 	}
-	public void setEndDate(Date endDate) {
+
+	public void setEndDate(String endDate) {
 		this.endDate = endDate;
 	}
+
 	public String getOfferLink() {
 		return offerLink;
 	}
@@ -86,11 +112,13 @@ public class Offers implements Serializable{
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
+
 	@Override
 	public String toString() {
 		return "Offers [id=" + id + ", catId=" + catId + ", cityId=" + cityId + ", clientId=" + clientId
 				+ ", offImageUrl=" + offImageUrl + ", startDate=" + startDate + ", endDate=" + endDate + ", offerLink="
-				+ offerLink + ", content=" + content + ", status=" + status + "]";
+				+ offerLink + ", content=" + content + ", status=" + status + ", specialOffer=" + specialOffer
+				+ ", file=" + file + "]";
 	}
 	
 	

@@ -15,15 +15,16 @@
 
 			<div class="blank-page">
 
-				<table id="offersdatatable" class="table table-bordered">
+				<table id="offerdatatable" class="table table-bordered">
 
 					<thead>
 
 						<tr>
 							<th>Content</th>
 							<th>Image</th>
-							 <th>Start Date</th>
-							<th>End Date</th>
+							<th>StartDate</th>
+							<th>EndDate</th>
+							<th>Status</th>
 							<th>Action</th>
 
 
@@ -32,6 +33,19 @@
 					</thead>
 
 
+					<!-- <tfoot>
+
+							<tr>
+										<th>Id</th>
+										<th>Name</th>
+										<th>Image;</th>
+										<th>Description</th>
+										<th>Status</th>
+										
+
+							</tr>
+
+						</tfoot> -->
 					<thead>
 				</table>
 			</div>

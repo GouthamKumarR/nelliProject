@@ -10,16 +10,14 @@
 				<span>Create Category</span>
 				</h2>
 		    </div>
-		<!--//banner-->
- 	 <!--faq-->
  	
 	<div class="validation-system">
  		
  	<div class="validation-form">
- 	<!---->
     	    
-        <sf:form method="POST" action="${contextRoot}/admin/addcategory" modelAttribute="category" >
+        <sf:form method="POST" action="${contextRoot}/admin/addcategory" modelAttribute="category" enctype="multipart/form-data">
          <sf:input class="form-control1" type="hidden"  path="id" name="id" ></sf:input>
+         <sf:input class="form-control1" type="hidden"  path="imageURL" name="imageURL" ></sf:input>
             
             <div class="clearfix"> </div>
             <div class="col-md-12 form-group1 group-mail">
@@ -41,11 +39,11 @@
             </div>
                         <div class="clearfix"> </div>
            	
-          <!--  	<div class="col-md-12 form-group ">
+          	<div class="col-md-12 form-group ">
               <label class="control-label">Category Image</label>
-              <input type="file" name="catimage">
+              <sf:input type="file" name="file" path="file"></sf:input>
               <p class="help-block"> select image for Category Logo</p>
-            </div> -->
+            </div> 
             <div class="clearfix"> </div>
             <div class="clearfix"> </div>
 

@@ -94,7 +94,7 @@
 		<%@include file="clientList.jsp"%>
 	</c:if>
 	<c:if test="${userClickListOffer == true }">
-		<%@include file="offersList.jsp"%>
+		<%@include file="offerlist.jsp"%>
 	</c:if>
 
 

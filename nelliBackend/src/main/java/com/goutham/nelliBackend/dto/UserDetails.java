@@ -25,6 +25,13 @@ public class UserDetails implements Serializable{
 	private String userName;
 	
 	
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
 	private String email;
 	
 	@Column(name = "role")
@@ -68,14 +75,14 @@ public class UserDetails implements Serializable{
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
+	@Override
+	public String toString() {
+		return "UserDetails [id=" + id + ", userName=" + userName + ", email=" + email + ", role=" + role
+				+ ", password=" + password + ", enabled=" + enabled + "]";
+	}
 	
 	/*
 	 * toString for logging and debugging activity
 	 * */
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", userName=" + userName + ", email=" + email
-				+  ", role=" + role + ", password=" + password + ", enabled="
-				+ enabled + "]";
-	}
+	
 }

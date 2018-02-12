@@ -18,7 +18,7 @@
 		
 			<div class="thumbnail">
 							
-				<img src="${images}/${category.imageURL}" class="img img-responsive"/>
+				<img src="${category.imageURL}" class="img img-responsive"/>
 						
 			</div>
 		
@@ -43,8 +43,8 @@
 				<c:forEach items="${clients}" var="client">
 					<div class="col-sm-4 insideEnd" >
 						<div class="thumbnail">
-							<img src="${images}/${client.imgUrl}"
-								alt="${client.name}" class="image">
+							<a href="${contextRoot}/show/${client.id}/details"><img src="${client.imgUrl}"
+								alt="${client.name}" class="image"></a>
 						</div>
 
 						<div class="caption">
@@ -52,9 +52,9 @@
 							<h3>${client.name}</h3>
 							<p>${client.details}</p>
 
-							<p>
-								<a href="${contextRoot}/show/${client.id}/details" class="btn btn-primary pull-right" role="button"> View </a>
-							</p>
+							 <p>
+								<a href="${contextRoot}/show/${client.id}/details" class="btn btn-primary pull-right" style="cursor: pointer;"> View </a>
+							</p> 
 
 						</div>
 

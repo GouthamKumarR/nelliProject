@@ -1,3 +1,4 @@
+<%@taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 <nav class="navbar-default navbar-static-top" role="navigation">
              <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -27,14 +28,14 @@
 		    <div class="drop-men" >
 		        <ul class=" nav_1">
 		           
-		    		
+		    		<security:authorize access="isAuthenticated()">
 					<li class="dropdown">
-		              <a href="#" class="dropdown-toggle dropdown-at" data-toggle="dropdown"><span class=" name-caret">Admin<i class="caret"></i></span><img src="images/admin.jpg"></a>
+		              <a href="#" class="dropdown-toggle dropdown-at" data-toggle="dropdown"><span class=" name-caret">Admin<i class="caret"></i></span><img src="${images}/admin.jpg"></a>
 		              <ul class="dropdown-menu " role="menu">
-		                <li><a href="logout.php"><i class="fa fa-power-off"></i>Logout</a></li>
+		                <li><a href="${contextRoot}/perform-logout"><i class="fa fa-power-off"></i>Logout</a></li>
 		              </ul>
 		            </li>
-		           
+		           </security:authorize>
 		        </ul>
 		     </div><!-- /.navbar-collapse -->
 			<div class="clearfix">
