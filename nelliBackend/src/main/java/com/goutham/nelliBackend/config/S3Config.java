@@ -11,9 +11,9 @@ import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 
 @Configuration
 public class S3Config {
-	private String awsId="AKIAJIDO4XUP2VRR6HTQ";
+	private String awsId="AKIAI5C467OSX74NQ54Q";
 
-	private String awsKey="BqvdnEGGL+AfyJP/gsK2ltAaAxacUraTi5hTocKL";
+	private String awsKey="WOXNdUNyWfbZcMHGaITbaT38u0i37gkxh4Y7BQb3";
 	
 	private String region="ap-south-1";
 

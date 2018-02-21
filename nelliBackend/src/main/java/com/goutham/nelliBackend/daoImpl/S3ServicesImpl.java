@@ -28,8 +28,9 @@ public class S3ServicesImpl implements S3Services {
 	@Autowired
 	private AmazonS3 s3client;
 
-	private String bucketName = "gouthams3-bucket";
-
+	//private String bucketName = "gouthams3-bucket";
+	private String bucketName = "nellai";
+	
 	@Override
 	public String uploadFile(MultipartFile files,String name) {
 

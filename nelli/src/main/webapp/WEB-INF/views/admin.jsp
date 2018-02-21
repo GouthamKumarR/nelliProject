@@ -33,8 +33,6 @@
 <link href="${css}/bootstrap.css" rel="stylesheet">
 <link rel="stylesheet" href="${css}/css/style.css">
 <link rel="stylesheet" href="${css}/font-awesome.css" type="text/css">
-<link rel="stylesheet" type="text/css" href="${css}/owl.carousel.css">
-<link rel="stylesheet" type="text/css" href="${css}/owl.theme.css">
 <link href="${css}/responsive-media.css" rel="stylesheet">
 <script src="${js}/modernizr.js"></script>
 
@@ -53,7 +51,6 @@
 <script src="${js}/js/site.js" type="text/javascript"></script>
 <!----End Calender -------->
 
-<script src="js/owl.carousel.js"></script>
 
 <!--scrolling js-->
 <script src="${js}/js/jquery.nicescroll.js"></script>

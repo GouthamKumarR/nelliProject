@@ -40,8 +40,12 @@
 			<p>${client.mobile}</p>
 			<hr/>
 			<h3>Client Site</h3>
-			<a href='../../../../${client.webSite}' target="_blank">${client.webSite}</a>
+			<a href='http://${client.webSite}' target="_blank">${client.webSite}</a>
 			<%-- <c:redirect url="${client.webSite}"/>   --%>
+			<hr/>
+			<a href='${client.imgUrl}' download="myimage" ><button type="button" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-download-alt"></span> Download
+        </button></a>
 			<hr/>
 			<%-- <a href="${contextRoot}/categories" class="btn btn-warning">
 				View All Categories</a> --%>
@@ -62,8 +66,9 @@
 							<%-- <p>${offers.catName}</p>
 							<p>${offers.cityName}</p>
 							<p>${offers.clientName}</p> --%>
-							<p>
-								<a href="${offers.offerLink}" class="btn btn-primary pull-right" role="button"> View </a>
+							<p><!-- href="<c:url value='/test.jsp'/>" -->
+							
+								<a href='http://${offers.offerLink}' class="btn btn-primary pull-right" target="_blank"> View </a>
 							</p>
 
 						</div>

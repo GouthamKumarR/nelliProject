@@ -45,7 +45,7 @@ public class AdminController {
 	@Autowired
 	S3Services s3Services;
 
-	private String uploadFilePath = "C:\\Users\\Gautham\\Desktop\\Capture.PNG";
+	//private String uploadFilePath = "C:\\Users\\Gautham\\Desktop\\Capture.PNG";
 
 	@RequestMapping({ "/", "", "/dashboard" })
 	public ModelAndView dashboard(@RequestParam(name = "success", required = false) String success) {

@@ -54,8 +54,6 @@
       <link href="${css}/responsive-media.css" rel="stylesheet">
       <!-- =-=-=-=-=-=-= Template Color =-=-=-=-=-=-= -->
       <link rel="stylesheet" id="color" href="${css}/colors/defualt.css">
-      <!-- =-=-=-=-=-=-= For Style Switcher =-=-=-=-=-=-= -->
-      <link rel="stylesheet" id="theme-color" type="text/css" href="#" />
       <!-- JavaScripts -->
       <script src="${js}/modernizr.js"></script>
 

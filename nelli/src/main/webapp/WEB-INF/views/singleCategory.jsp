@@ -33,6 +33,10 @@
 			
 			<p>${category.description}</p>
 			<hr/>
+			<a href='${category.imageURL}' download="myimage" ><button type="button" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-download-alt"></span> Download
+        </button></a>
+        <hr/>
 			<a href="${contextRoot}/categories" class="btn btn-warning">
 				View All Categories</a>
 		</div>
@@ -51,6 +55,7 @@
 							<%-- <h4 class="pull-right">&#8377; ${client.unitPrice}</h4> --%>
 							<h3>${client.name}</h3>
 							<p>${client.details}</p>
+							
 
 							 <p>
 								<a href="${contextRoot}/show/${client.id}/details" class="btn btn-primary pull-right" style="cursor: pointer;"> View </a>
